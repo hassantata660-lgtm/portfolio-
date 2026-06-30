@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hassan Tata | Developer</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1f2a44;
+            background: #f0f5fe;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            background: #0b1a33;
+            color: #fff;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 20, 40, 0.4);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #66b0ff;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #66b0ff;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        header {
+            background: linear-gradient(145deg, #0b1a33 0%, #1a3555 100%);
+            color: #fff;
+            padding: 80px 0 60px;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #66b0ff;
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: #b8d4f0;
+            margin-bottom: 12px;
+        }
+
+        .bio {
+            font-size: 18px;
+            color: #d0e4ff;
+            margin-bottom: 24px;
+            max-width: 450px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #1e6fc7;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #0f5aad;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid #66b0ff;
+            color: #fff;
+        }
+
+        .btn-outline:hover {
+            background: #1e6fc7;
+            border-color: #1e6fc7;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 0 0 170px;
+            text-align: center;
+        }
+
+        /* ===== GEOMETRIC DESIGN OBJECT ===== */
+        .geometric-object {
+            width: 170px;
+            height: 170px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Outer square with gradient border */
+        .geometric-object .outer-square {
+            width: 170px;
+            height: 170px;
+            background: linear-gradient(135deg, #1e6fc7, #66b0ff);
+            border-radius: 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 8px 32px rgba(30, 111, 199, 0.3);
+        }
+
+        .geometric-object .outer-square::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            background: rgba(11, 26, 51, 0.7);
+            border-radius: 14px;
+            border: 2px solid rgba(102, 176, 255, 0.3);
+        }
+
+        /* Inner diamond */
+        .geometric-object .diamond {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #66b0ff, #1e6fc7);
+            transform: rotate(45deg);
+            border-radius: 8px;
+            position: relative;
+            z-index: 2;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 30px rgba(102, 176, 255, 0.3);
+        }
+
+        /* Small circles around */
+        .geometric-object .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(102, 176, 255, 0.3);
+            border: 2px solid rgba(102, 176, 255, 0.5);
+            z-index: 1;
+        }
+
+        .geometric-object .circle-1 {
+            width: 30px;
+            height: 30px;
+            top: -8px;
+            right: -8px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .geometric-object .circle-2 {
+            width: 20px;
+            height: 20px;
+            bottom: -5px;
+            left: -5px;
+            animation: float 3.5s ease-in-out infinite reverse;
+        }
+
+        .geometric-object .circle-3 {
+            width: 15px;
+            height: 15px;
+            top: 50%;
+            right: -15px;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        .geometric-object .circle-4 {
+            width: 12px;
+            height: 12px;
+            bottom: 30%;
+            left: -12px;
+            animation: pulse 3s ease-in-out infinite reverse;
+        }
+
+        /* Code icon in the center */
+        .geometric-object .code-icon {
+            position: absolute;
+            z-index: 3;
+            font-size: 32px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(102, 176, 255, 0.5);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: rotate(45deg) scale(1);
+            }
+            50% {
+                transform: rotate(45deg) scale(1.08);
+            }
+        }
+
+        .geometric-object:hover .outer-square {
+            animation: float 1.5s ease-in-out infinite;
+            box-shadow: 0 12px 40px rgba(30, 111, 199, 0.5);
+        }
+
+        .geometric-object:hover .diamond {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            color: #0b1a33;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #1e6fc7;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ===== ABOUT ===== */
+        #about {
+            background: #ffffff;
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            color: #1f2a44;
+        }
+
+        .about-content p {
+            margin-bottom: 16px;
+        }
+
+        /* ===== EDUCATION ===== */
+        #education {
+            background: #e9f0fc;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .edu-card {
+            background: #fff;
+            padding: 28px 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 30, 60, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border: 1px solid #d0e0f5;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 40, 80, 0.12);
+        }
+
+        .edu-icon {
+            font-size: 44px;
+            margin-bottom: 12px;
+        }
+
+        .edu-card h3 {
+            font-size: 19px;
+            color: #0b1a33;
+            margin-bottom: 6px;
+        }
+
+        .edu-card .institution {
+            color: #1e6fc7;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .edu-card .year {
+            color: #6a7a9a;
+            font-size: 14px;
+        }
+
+        .edu-card p {
+            color: #2a3a5a;
+            font-size: 14px;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        /* ===== EXPERIENCE ===== */
+        #experience {
+            background: #ffffff;
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .exp-card {
+            background: #f8faff;
+            padding: 28px 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 30, 60, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border: 1px solid #e0ebf8;
+        }
+
+        .exp-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 40, 80, 0.10);
+        }
+
+        .exp-icon {
+            font-size: 44px;
+            margin-bottom: 12px;
+        }
+
+        .exp-card h3 {
+            font-size: 19px;
+            color: #0b1a33;
+            margin-bottom: 4px;
+        }
+
+        .exp-card .role {
+            color: #1e6fc7;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .exp-card .duration {
+            color: #6a7a9a;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .exp-card p {
+            color: #2a3a5a;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+       
+        /* ===== PROJECTS ===== */
+        #projects {
+            background: #ffffff;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #f8faff;
+            padding: 28px 22px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 30, 60, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border: 1px solid #e0ebf8;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 40, 80, 0.12);
+        }
+
+        .project-icon {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 8px;
+            color: #0b1a33;
+        }
+
+        .project-card p {
+            color: #2a3a5a;
+            font-size: 15px;
+            margin-bottom: 14px;
+        }
+
+        .tech-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tech-tags span {
+            background: #dce6f5;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #0b1a33;
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .project-links a {
+            color: #1e6fc7;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .project-links a:hover {
+            color: #0f4a8a;
+            text-decoration: underline;
+        }
+
+        /* ===== SKILLS ===== */
+        #skills {
+            background: #e9f0fc;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            background: #0b1a33;
+            color: #fff;
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .skill-item:hover {
+            background: #1e6fc7;
+            transform: scale(1.05);
+        }
+
+        /* ===== CERTIFICATES SECTION ===== */
+        #certificates {
+            background: #ffffff;
+        }
+
+        .cert-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: #f8faff;
+            padding: 28px 24px;
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(0, 30, 60, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            flex: 1 1 260px;
+            max-width: 320px;
+            border: 1px solid #d0e0f5;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(0, 40, 80, 0.10);
+        }
+
+        .cert-icon {
+            font-size: 44px;
+            margin-bottom: 10px;
+        }
+
+        .cert-card h3 {
+            font-size: 20px;
+            color: #0b1a33;
+            margin-bottom: 6px;
+        }
+
+        .cert-card p {
+            color: #2a3a5a;
+            font-size: 15px;
+            margin-bottom: 14px;
+        }
+
+        .cert-link {
+            display: inline-block;
+            background: #0b1a33;
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .cert-link:hover {
+            background: #1e6fc7;
+            transform: scale(1.03);
+        }
+
+        /* ===== CONTACT ===== */
+        #contact {
+            background: #0b1a33;
+            color: #fff;
+        }
+
+        #contact .section-title {
+            color: #fff;
+        }
+
+        #contact .section-title::after {
+            background: #66b0ff;
+        }
+
+        .contact-sub {
+            text-align: center;
+            font-size: 18px;
+            color: #b8d4f0;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-btn {
+            background: rgba(255, 255, 255, 0.07);
+            padding: 12px 32px;
+            border-radius: 30px;
+            color: #fff;
+            font-weight: 500;
+            transition: 0.3s;
+            border: 1px solid rgba(102, 176, 255, 0.25);
+        }
+
+        .contact-btn:hover {
+            background: #1e6fc7;
+            transform: translateY(-3px);
+            border-color: #66b0ff;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #061024;
+            color: #7a94b5;
+            text-align: center;
+            padding: 24px 0;
+            font-size: 14px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .bio {
+                margin: 0 auto 24px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .geometric-object {
+                width: 140px;
+                height: 140px;
+            }
+
+            .geometric-object .outer-square {
+                width: 140px;
+                height: 140px;
+            }
+
+            .geometric-object .diamond {
+                width: 55px;
+                height: 55px;
+            }
+
+            .geometric-object .code-icon {
+                font-size: 26px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #0b1a33;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                padding: 20px 0;
+                text-align: center;
+                gap: 14px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .projects-grid,
+            .education-grid,
+            .exp-grid,
+            
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Hassan Tata</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">☰</button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <header>
+        <div class="container hero">
+            <div class="hero-text">
+                <h1>Hi, I'm <span class="highlight">Hassan Tata</span></h1>
+                <p class="tagline">Beginner Developer | Problem Solver | Curious Learner</p>
+                <p class="bio">
+                    I build clean, functional websites and love turning ideas into code.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">See My Work</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- ===== REPLACED AVATAR WITH GEOMETRIC OBJECT ===== -->
+                <div class="geometric-object">
+                    <div class="outer-square">
+                        <div class="diamond"></div>
+                        <div class="circle circle-1"></div>
+                        <div class="circle circle-2"></div>
+                        <div class="circle circle-3"></div>
+                        <div class="circle circle-4"></div>
+                        <div class="code-icon">&lt;/&gt;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+ <p>   I'm a passionate beginner developer who recently started my coding journey.
+                    I'm in level 200 in Software engineering at Northwest University Kano.
+                    I love learning new technologies and building projects that solve real problems.
+                    Currently exploring <strong>HTML, CSS, JavaScript.</strong>
+                </p>
+                <p>
+                    When I'm not coding, I enjoy gaming, reading tech blogs, and contributing
+                    to open-source projects.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="edu-card">
+                    <div class="edu-icon">🎓</div>
+                    <h3>Software Engineering</h3>
+                    <div class="institution">Northwest University Kano</div>
+                    <div class="year">2024 - Present</div>
+                    <p>Currently in Level 200, building a strong foundation in software development principles, algorithms, and programming concepts.</p>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-icon">📚</div>
+                    <h3>Web Development</h3>
+                    <div class="institution">Self-Learning & Online Courses</div>
+                    <div class="year">2025 - Present</div>
+                    <p>Learning HTML, CSS, JavaScript through FreeCodeCamp and other platforms, building practical projects to apply my knowledge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Learning Experience</h2>
+            <div class="exp-grid">
+                <div class="exp-card">
+                    <div class="exp-icon">💻</div>
+                    <h3>Personal Projects</h3>
+                    <div class="role">Beginner Developer</div>
+                    <div class="duration">2025 - Present</div>
+                    <p>Building small web applications like calculators, to-do lists, and landing pages to practice HTML, CSS, and JavaScript fundamentals.</p>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-icon">🌐</div>
+                    <h3>Open Source Exploration</h3>
+                    <div class="role">Contributor (Learning)</div>
+                    <div class="duration">2025 - Present</div>
+                    <p>Exploring open-source projects on GitHub, learning how to collaborate, read documentation, and contribute to real-world codebases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+
+                <!-- Simple Calculator -->
+                <div class="project-card">
+                    <div class="project-icon">🧮</div>
+                    <h3>Simple Calculator</h3>
+                    <p>Basic calculator with add, subtract, multiply, divide and clear.</p>
+                    <div class="tech-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">Live Demo</a>
+                        <a href="https://github.com/hassantata660-lgtm" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Beginner Website: Personal Bio / Landing Page -->
+                <div class="project-card">
+                    <div class="project-icon">🌱</div>
+                    <h3>Personal Bio Page</h3>
+                    <p>A clean one-page bio with intro, hobbies, and social links.</p>
+                    <div class="tech-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">Live Demo</a>
+                        <a href="https://github.com/hassantata660-lgtm" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- NEW THIRD PROJECT -->
+                <div class="project-card">
+                    <div class="project-icon">📝</div>
+                    <h3>To-Do List App</h3>
+                    <p>A simple task manager where you can add, complete, and delete tasks.</p>
+                    <div class="tech-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">Live Demo</a>
+                        <a href="https://github.com/hassantata660-lgtm" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">HTML5</div>
+                <div class="skill-item">CSS3</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">Git & GitHub</div>
+                <div class="skill-item">Responsive Design</div>
+                <div class="skill-item">Problem Solving</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATES ===== -->
+    <section id="certificates">
+        <div class="container">
+            <h2 class="section-title">Certificates</h2>
+            <div class="cert-grid">
+                <!-- Responsive Web Design Certificate -->
+                <div class="cert-card">
+                    <div class="cert-icon">📜</div>
+                    <h3>Responsive Web Design</h3>
+                    <p>FreeCodeCamp certification — HTML & CSS, flexbox, grid, media queries.</p>
+                    <a href="https://www.freecodecamp.org/certification/fcc-580c6641-9334-4854-ad59-cb0324845108/responsive-web-design-v9" 
+                       target="_blank" 
+                       class="cert-link">View Certificate</a>
+                </div>
+                <!-- JavaScript Algorithms -->
+                <div class="cert-card">
+                    <div class="cert-icon">⚡</div>
+                    <h3>JavaScript Algorithms</h3>
+                    <p>FreeCodeCamp (in progress) — core JS, functions, arrays, objects.</p>
+                    <a href="#" class="cert-link">In Progress</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: #fff;">Contact Me</h2>
+            <p class="contact-sub">I'm on a learning journey — open to feedback, study groups, and small projects to grow together.</p>
+            <div class="contact-links">
+                <a href="mailto:hassantata660@gmail.com" class="contact-btn">📧 Email</a>
+                <a href="https://wa.me/2347072926092" target="_blank" class="contact-btn">💬 WhatsApp</a>
+                <a href="https://github.com/hassantata660-lgtm" target="_blank" class="contact-btn">🐙 GitHub</a>
+                <a href="https://x.com/HassanTata7572" target="_blank" class="contact-btn">🐦 Twitter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Hassan Tata. Built with ❤️ and caffeine.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== HAMBURGER MENU =====
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ===== SMOOTH SCROLLING =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
