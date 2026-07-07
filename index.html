@@ -442,7 +442,6 @@
             line-height: 1.6;
         }
 
-       
         /* ===== PROJECTS ===== */
         #projects {
             background: #ffffff;
@@ -548,7 +547,7 @@
             transform: scale(1.05);
         }
 
-        /* ===== CERTIFICATES SECTION ===== */
+        /* ===== CERTIFICATES SECTION - UPDATED ===== */
         #certificates {
             background: #ffffff;
         }
@@ -594,6 +593,22 @@
             color: #2a3a5a;
             font-size: 15px;
             margin-bottom: 14px;
+        }
+
+        /* Certificate image style */
+        .cert-image {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 12px;
+            border: 2px solid #d0e0f5;
+            box-shadow: 0 4px 12px rgba(0, 30, 60, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 12px;
+        }
+
+        .cert-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 40, 80, 0.15);
         }
 
         .cert-link {
@@ -727,9 +742,12 @@
 
             .projects-grid,
             .education-grid,
-            .exp-grid,
-            
+            .exp-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .cert-image {
+                max-width: 150px;
             }
         }
     </style>
@@ -744,7 +762,6 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#experience">Experience</a></li>
-                
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#certificates">Certificates</a></li>
@@ -769,7 +786,6 @@
                 </div>
             </div>
             <div class="hero-image">
-                <!-- ===== REPLACED AVATAR WITH GEOMETRIC OBJECT ===== -->
                 <div class="geometric-object">
                     <div class="outer-square">
                         <div class="diamond"></div>
@@ -789,7 +805,8 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
- <p>   I'm a passionate beginner developer who recently started my coding journey.
+                <p>
+                    I'm a passionate beginner developer who recently started my coding journey.
                     I'm in level 200 in Software engineering at Northwest University Kano.
                     I love learning new technologies and building projects that solve real problems.
                     Currently exploring <strong>HTML, CSS, JavaScript.</strong>
@@ -847,8 +864,6 @@
             </div>
         </div>
     </section>
-
-   
 
     <!-- ===== PROJECTS ===== -->
     <section id="projects">
@@ -922,7 +937,7 @@
         </div>
     </section>
 
-    <!-- ===== CERTIFICATES ===== -->
+    <!-- ===== CERTIFICATES - UPDATED with Image Anchor ===== -->
     <section id="certificates">
         <div class="container">
             <h2 class="section-title">Certificates</h2>
@@ -932,10 +947,22 @@
                     <div class="cert-icon">📜</div>
                     <h3>Responsive Web Design</h3>
                     <p>FreeCodeCamp certification — HTML & CSS, flexbox, grid, media queries.</p>
+                    
+                    <!-- CERTIFICATE IMAGE ANCHOR - Add your image path here -->
+                    <img 
+                        src="hassan_freecode_certificate.jpeg" 
+                        alt="Responsive Web Design Certificate" 
+                        class="cert-image"
+                        id="certImage"
+                    />
+                    <!-- Replace src="" with your certificate image path -->
+                    <!-- Example: src="certificate.jpg" or src="images/certificate.png" -->
+                    
                     <a href="https://www.freecodecamp.org/certification/fcc-580c6641-9334-4854-ad59-cb0324845108/responsive-web-design-v9" 
                        target="_blank" 
-                       class="cert-link">View Certificate</a>
+                       class="cert-link">Verify Certificate</a>
                 </div>
+                
                 <!-- JavaScript Algorithms -->
                 <div class="cert-card">
                     <div class="cert-icon">⚡</div>
