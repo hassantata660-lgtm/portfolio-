@@ -627,6 +627,80 @@
             transform: scale(1.03);
         }
 
+        /* ===== MEDIA SECTION STYLES ===== */
+.media-wrapper {
+    background: #f8faff;
+    padding: 28px 24px;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0, 30, 60, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #d0e0f5;
+}
+
+.media-wrapper:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0, 40, 80, 0.10);
+}
+
+.media-icon {
+    font-size: 44px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.media-wrapper h3 {
+    font-size: 20px;
+    color: #0b1a33;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.media-wrapper p {
+    color: #2a3a5a;
+    font-size: 15px;
+    margin-bottom: 14px;
+    line-height: 1.6;
+}
+
+.media-frame {
+    border-radius: 12px;
+    border: 2px solid #d0e0f5;
+    box-shadow: 0 4px 12px rgba(0, 30, 60, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+}
+
+.media-frame:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 25px rgba(0, 40, 80, 0.15);
+}
+
+.media-frame iframe {
+    display: block;
+    width: 100%;
+    border: none;
+}
+
+.media-link {
+    display: inline-block;
+    background: #0b1a33;
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 12px;
+    text-decoration: none;
+}
+
+.media-link:hover {
+    background: #1e6fc7;
+    transform: scale(1.03);
+}
+
         /* ===== CONTACT ===== */
         #contact {
             background: #0b1a33;
@@ -765,6 +839,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#media">media</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="hamburger" id="hamburger">☰</button>
@@ -973,6 +1048,46 @@
             </div>
         </div>
     </section>
+        </div>
+    </div>
+</section>
+
+<!-- ===== MEDIA SECTION ===== -->
+<section id="media" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 border-b-4 border-indigo-600 w-fit">My Media 🎥</h2>
+        
+        <div class="grid md:grid-cols-1 gap-6 max-w-4xl mx-auto">
+            
+            <!-- Media Card -->
+            <div class="media-wrapper">
+                <div class="text-center">
+                    <div class="media-icon">🎬</div>
+                    <h3>Media Gallery</h3>
+                    <p>Watch my introduction video, listen to my audio, and view programming tutorials.</p>
+                </div>
+                
+                <div class="media-frame">
+                    <iframe
+                        src="media.html"
+                        width="100%"
+                        height="500"
+                        title="My Media"
+                        loading="lazy">
+                    </iframe>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="media.html" target="_blank" class="media-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square" style="margin-right: 8px;"></i>
+                        Open Full Media Page
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
 
     <!-- ===== CONTACT ===== -->
     <section id="contact">
